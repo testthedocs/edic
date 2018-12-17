@@ -1,0 +1,13 @@
+baseURL = "https://edic.testthedocs.org/"
+languageCode = "en-us"
+title = "Editor In Chief"
+copyright = "Made with ❤️ by TTD Community."
+#googleAnalytics = "UA-106198408-1"
+theme = "hugo-apex-theme"
+pygmentsCodeFences = true
+pygmentsStyle = "dracula"
+enableEmoji = true
+
+[params]
+#logo = "https://ttd-cli.testthedocs.org/avatar.png"
+logo = "http://localhost:1313/avatar.png"
