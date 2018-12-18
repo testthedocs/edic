@@ -1,6 +1,10 @@
 package command
 
-import "github.com/codegangsta/cli"
+import (
+    "github.com/codegangsta/cli"
+    "os"
+    "os/exec"
+)
 
 func CmdRst(c *cli.Context) {
 	// Write your code here
@@ -12,4 +16,4 @@ func CmdRst(c *cli.Context) {
         cmd.Run()
 }
 
-}
+

@@ -1,6 +1,10 @@
 package command
 
-import "github.com/codegangsta/cli"
+import (
+    "github.com/codegangsta/cli"
+    "os"
+    "os/exec"
+)
 
 func CmdLinkcheck(c *cli.Context) {
 	// Write your code here
