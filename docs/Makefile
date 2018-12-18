@@ -27,8 +27,8 @@ server: ## Serves local, open yur browser on localhost on port 1313
 clean: ## Removes /public
 	$(RM) -r public
 
-.PHONY: build
-build: clean ## Builds static HTML into /public
+.PHONY: docs
+docs: clean ## Builds static HTML into /public
 	$(HUGO)
 
 .PHONY: new

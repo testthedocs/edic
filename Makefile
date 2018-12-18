@@ -18,7 +18,7 @@ BIN_DIR := $(GOPATH)/bin
 GOMETALINTER := $(BIN_DIR)/gometalinter
 TEST_BUILDS=test-pkgs
 OS=$(shell uname -s)
-VERSION := $(shell cat VERSION)
+#VERSION := $(shell cat VERSION)
 
 # Check for required command tools to build or stop immediately
 #EXECUTABLES = git go find pwd
@@ -66,3 +66,6 @@ $(GOMETALINTER):
 lint: $(GOMETALINTER) ## Runs a GO linter
 	gometalinter ./... --vendor
 
+.PHONY: docs
+docs: ## Builds HTML for publishing
+	$(MAKE) -C docs html
