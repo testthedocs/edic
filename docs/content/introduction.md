@@ -19,9 +19,8 @@ This should be as effortless as possible.
 
 Be able to run the same checks locally and on CI, using the same configuration, without having a hard time to remember long command line syntaxes.
 
-![example output](/edic-help.png "example output")
+![edic help](/edic-help.png "edic help")
 
 All checks are based on [Rakpart](https://rakpart.testthedocs.org), which is also used in CI.
 
 :white_check_mark:
-

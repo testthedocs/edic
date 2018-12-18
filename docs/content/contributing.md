@@ -9,15 +9,13 @@ Reference points about contributing and developing.
 - [Commit Guidelines](https://rakpart.testthedocs.org/commit-guidelines.html)
 - [Code Of Conduct](https://rakpart.testthedocs.org/code-of-conduct.html)
 
-
-## Dependencies
-
+# Dependencies
 
 - [dep](https://github.com/golang/dep/)
 
 We use `dep` for dependency management and pining.
 
-## Getting Started
+# Getting Started
 
 Clone the repository:
 

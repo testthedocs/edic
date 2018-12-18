@@ -25,7 +25,7 @@ go get github.com/testthedocs/edic
 Download the pre-compiled binaries from the [releases page][releases] and
 copy to the desired location.
 
-## Compiling From Source
+# Compiling From Source
 
 > **Note**: this method requires Go 1.11+.
 

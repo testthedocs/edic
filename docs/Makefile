@@ -38,3 +38,7 @@ new: ## Creates new post -> 'make new post /foobar.md'
 .PHONY: create
 create: ## Initial setup -> run this in empty /dir
 	$(HUGO) new site .
+
+.PHONY: check-md
+check-md: ## Run linter against docs "/content"
+	@docker run -v "${PWD}/content":/srv/docs testthedocs/ttd-mdlint

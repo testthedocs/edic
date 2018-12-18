@@ -6,7 +6,7 @@ weight: 4
 
 *Edic* uses [Rakpart](https://rakpart.testhedocs.org) checks.
 
-## Markdown
+# Markdown
 
 Markdown code style linter for [CommonMark](https://commonmark.org/).
 
@@ -20,7 +20,7 @@ edic md
 
 - [Rackpart documentation](https://rakpart.testthedocs.org/ttd-remark.html)
 
-## Linkcheck
+# Linkcheck
 
 Link validation for ``.md`` and ``.rst`` files.
 
@@ -36,7 +36,7 @@ edic linkcheck
 
 - [Linkcheck docs](https://rakpart.testthedocs.org/ttd-linkcheck.html) on Rakpart.
 
-## reStructuredText
+# reStructuredText
 
 A opinionated style checker for rst based documentation.
 
