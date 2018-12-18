@@ -10,4 +10,4 @@ weight: 998
 
 - [Pronovix](https://pronovix.com/)
 
-**Thank you!**
+**Thank you !**
