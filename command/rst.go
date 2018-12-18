@@ -8,7 +8,7 @@ import (
 
 func CmdRst(c *cli.Context) {
 	// Write your code here
-        cmdStr := "docker run --rm -i -v $PWD:/srv/data:ro testthedocs/ttd-doc8"
+        cmdStr := "docker run --rm -i -v $PWD:/srv/data testthedocs/ttd-doc8"
         cmd := exec.Command("bash", "-c", cmdStr)
 	cmd.Stdout = os.Stdout
 	cmd.Stdin = os.Stdin

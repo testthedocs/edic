@@ -6,14 +6,14 @@ weight: 11
 
 Reference points about contributing and developing.
 
-* [Commit Guidelines](https://rakpart.testthedocs.org/commit-guidelines.html)
-* [Code Of Conduct](https://rakpart.testthedocs.org/code-of-conduct.html)
+- [Commit Guidelines](https://rakpart.testthedocs.org/commit-guidelines.html)
+- [Code Of Conduct](https://rakpart.testthedocs.org/code-of-conduct.html)
 
 
 ## Dependencies
 
 
-* [dep](https://github.com/golang/dep/)
+- [dep](https://github.com/golang/dep/)
 
 We use `dep` for dependency management and pining.
 
