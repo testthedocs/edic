@@ -9,5 +9,5 @@ pygmentsStyle = "dracula"
 enableEmoji = true
 
 [params]
-#logo = "https://ttd-cli.testthedocs.org/avatar.png"
-logo = "http://localhost:1313/avatar.png"
+logo = "https://edic.testthedocs.org/avatar.png"
+#logo = "http://localhost:1313/avatar.png"
