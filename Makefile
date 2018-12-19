@@ -18,7 +18,7 @@ BIN_DIR := $(GOPATH)/bin
 GOMETALINTER := $(BIN_DIR)/gometalinter
 TEST_BUILDS=test-pkgs
 OS=$(shell uname -s)
-#VERSION := $(shell cat VERSION)
+VERSION := $(shell cat VERSION)
 
 # Check for required command tools to build or stop immediately
 #EXECUTABLES = git go find pwd
@@ -69,3 +69,13 @@ lint: $(GOMETALINTER) ## Runs a GO linter
 .PHONY: docs
 docs: ## Builds HTML for publishing
 	$(MAKE) -C docs html
+
+.PHONY: release
+release: ## Release go binary using GitReleaser
+	@git tag -a $(VERSION) -m "Release" || true
+	@git push origin $(VERSION)
+	@goreleaser --rm-dist
+
+.PHONY: release-snapshot
+release-snapshot: ## Build snapshot of release with GoReleaser
+	@goreleaser --snapshot
