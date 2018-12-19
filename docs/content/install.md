@@ -39,5 +39,27 @@ make install
 After that, the `edic` binary will be in your `$GOBIN` folder.
 
 ```sh
-./edic --help
+edic -h
+NAME:
+   edic - Editor In Chief
+
+USAGE:
+   edic [global options] command [command options] [arguments...]
+
+VERSION:
+   0.0.1
+
+AUTHOR:
+   testthedocs
+
+COMMANDS:
+     md         Checks Markdown Syntax (CommonMark Style)
+     linkcheck  Checks Links
+     style      Checks Style (based on Vale)
+     rst        Checks reStructuredText
+     help, h    Shows a list of commands or help for one command
+
+GLOBAL OPTIONS:
+   --help, -h     show help
+   --version, -v  print the version
 ```
