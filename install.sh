@@ -122,7 +122,7 @@ if [ "${OS}" != "linux" ] && { [ "${ARCH}" = "ppc64" ] || [ "${ARCH}" = "ppc64le
     # ppc64 and ppc64le are only supported on Linux.
     echo "${OS}_${ARCH} is not supported by this instalation script"
 else
-    BINARY="redactor_${OS}_${ARCH}"
+    BINARY="edic_${OS}_${ARCH}"
 fi
 
 # add .exe if on windows
