@@ -8,10 +8,10 @@ You can install the pre-compiled binary or compile from source.
 
 **curl**:
 
-> **Caution**: Do not blindly follow these instructions, review our [install script](https://github.com/testthedocs/ttd-cli/blob/master/install.sh) first.
+> **Caution**: Do not blindly follow these instructions, review our [install script](https://github.com/testthedocs/edic/blob/master/install.sh) first.
 
 ```sh
-curl https://raw.githubusercontent.com/testthedocs/redactor/master/install.sh | sudo sh
+curl https://raw.githubusercontent.com/testthedocs/edic/master/install.sh | sudo sh
 ```
 
 **go get**:
