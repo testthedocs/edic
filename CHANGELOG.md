@@ -1,5 +1,9 @@
 ## 0.0.2-dev (2019-00-00)
 
+### Added
+
+- testthedocs/ttd-remark for markdown checks [svx]
+
 ### Fixed
 
 - [#4](https://github.com/goreleaser/goreleaser/issues/602) [svx]
