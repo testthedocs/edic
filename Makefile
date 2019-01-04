@@ -78,4 +78,4 @@ release: ## Release go binary using GitReleaser
 
 .PHONY: release-snapshot
 release-snapshot: ## Build snapshot of release with GoReleaser
-	@goreleaser --snapshot
+	@goreleaser --rm-dist --snapshot
