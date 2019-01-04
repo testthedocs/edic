@@ -148,7 +148,7 @@ downloadFile "$BINARY_URL" "$DOWNLOAD_FILE"
 echo "Setting executable permissions."
 chmod +x "$DOWNLOAD_FILE"
 
-INSTALL_NAME="redactor"
+INSTALL_NAME="edic"
 
 if [ "$OS" = "windows" ]; then
     INSTALL_NAME="$INSTALL_NAME.exe"
