@@ -8,7 +8,7 @@ Please make sure that you have the following dependencies installed:
 
 - [Docker](https://docker.com)
 
-## Manage Docker As a Non-root User
+## Manage Docker As A Non-root User
 
 The Docker daemon binds to a Unix socket instead of a TCP port.
 By default that Unix socket is owned by the user root and other users can only access it using sudo.
