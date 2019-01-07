@@ -86,7 +86,8 @@ docs: ## Builds HTML for publishing
 release: ## Release go binary using GitReleaser
 	@git tag -a $(VERSION) -m "Release" || true
 	@git push origin $(VERSION)
-	@goreleaser --rm-dist
+	#@goreleaser --rm-dist
+	@echo "$(YELLOW)==> Now run: goreleaser --rm-dist --release-notes=PATH/TO/NOTES $(VERSION)$(RESET)"
 
 .PHONY: release-snapshot
 release-snapshot: ## Build snapshot of release with GoReleaser
