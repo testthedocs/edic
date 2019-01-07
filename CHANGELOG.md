@@ -3,6 +3,7 @@
 ## Fixed
 
 - [#3](https://github.com/testthedocs/edic/issues/3)
+- [#7](https://github.com/testthedocs/edic/issues/7)
 
 ## 0.0.1-rc1 (2019-01-07)
 

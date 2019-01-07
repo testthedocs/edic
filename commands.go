@@ -8,8 +8,10 @@ import (
 	"github.com/testthedocs/edic/command"
 )
 
+// GlobalFlags : Settings for global CLI
 var GlobalFlags = []cli.Flag{}
 
+// Commands : List of all commands
 var Commands = []cli.Command{
 	{
 		Name:   "md",
@@ -37,6 +39,7 @@ var Commands = []cli.Command{
 	},
 }
 
+// CommandNotFound : If command is not found return the help
 func CommandNotFound(c *cli.Context, command string) {
 	fmt.Fprintf(os.Stderr, "%s: '%s' is not a %s command. See '%s --help'.", c.App.Name, command, c.App.Name, c.App.Name)
 	os.Exit(2)
