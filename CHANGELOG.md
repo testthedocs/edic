@@ -1,3 +1,9 @@
+## 0.0.1-rc1 (2019-00-00)
+
+## Fixed
+
+- [#3](https://github.com/testthedocs/edic/issues/3)
+
 ## 0.0.1-rc1 (2019-01-07)
 
 ### Added
