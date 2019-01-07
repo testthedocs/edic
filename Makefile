@@ -15,7 +15,11 @@ YELLOW=`tput setaf 3`
 
 # Vars
 BIN_DIR := $(GOPATH)/bin
+
+# Vars for linters
 GOMETALINTER := $(BIN_DIR)/gometalinter
+GOLINT := $(BIN_DIR)/golint
+STATICCHECK :=$(BIN_DIR)/staticcheck
 TEST_BUILDS=test-pkgs
 OS=$(shell uname -s)
 VERSION := $(shell cat VERSION)
@@ -62,9 +66,17 @@ $(GOMETALINTER):
 	go get -u github.com/alecthomas/gometalinter
 	gometalinter --install &> /dev/null
 
-.PHONY: lint
-lint: $(GOMETALINTER) ## Runs a GO linter
+.PHONY: lint-all
+lint: $(GOMETALINTER) ## Runs ALL GO linter
 	gometalinter ./... --vendor
+
+.PHONY: golint
+golint: $(GOLINT) ## Runs golint
+	golint ./...
+
+.PHONY: staticcheck
+staticcheck: $(STATICCHECK) ## Runs staticcheck
+	staticcheck ./...
 
 .PHONY: docs
 docs: ## Builds HTML for publishing
