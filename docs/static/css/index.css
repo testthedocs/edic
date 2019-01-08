@@ -1,7 +1,7 @@
 
 :root {
   --ease: cubic-bezier(.82, 0, .12, 1);
-  --width: 800px;
+  --width: 900px;
   --header-height: 400px;
 
   --tracking: 0.05rem;
