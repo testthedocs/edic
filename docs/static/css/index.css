@@ -30,7 +30,7 @@ html, body {
     "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans",
     "Droid Sans", "Helvetica Neue", sans-serif;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 300;
   background: var(--bg);
   color: var(--fg-dark);
