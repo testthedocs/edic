@@ -15,6 +15,8 @@ YELLOW=`tput setaf 3`
 
 # Vars
 BIN_DIR := $(GOPATH)/bin
+# Set an output prefix, which is the local directory if not specified
+PREFIX?=$(shell pwd)
 
 # Vars for linters
 GOMETALINTER := $(BIN_DIR)/gometalinter
@@ -23,13 +25,8 @@ STATICCHECK :=$(BIN_DIR)/staticcheck
 TEST_BUILDS=test-pkgs
 OS=$(shell uname -s)
 VERSION := $(shell cat VERSION)
+RELEASE_NOTES :=release-notes
 
-# Check for required command tools to build or stop immediately
-#EXECUTABLES = git go find pwd
-#K := $(foreach exec,$(EXECUTABLES),\
-        $(if $(shell which $(exec)),some string,$(error "No $(exec) in PATH)))
-
-#ROOT_DIR:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 
 # Add the following 'help' target to your Makefile
 # And add help text after each target name starting with '\#\#'
@@ -40,10 +37,16 @@ help: ## This help message
 .PHONY: setup
 setup: ## Ckecks and prepares setup
 ifeq ($(OS), Darwin)
+	@echo ""
+	@echo "$(YELLOW)==> Installing dep ...$(RESET)"
 	brew install dep
 else
+	@echo ""
+	@echo "$(YELLOW)==> Installing dep ...$(RESET)"
 	curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 endif
+	@echo ""
+	@echo "$(YELLOW)==> Running dep to install go dependencies ...$(RESET)"
 	dep ensure -vendor-only
 
 .PHONY: test-build
@@ -87,7 +90,8 @@ release: ## Release go binary using GitReleaser
 	@git tag -a $(VERSION) -m "Release" || true
 	@git push origin $(VERSION)
 	#@goreleaser --rm-dist
-	@echo "$(YELLOW)==> Now run: goreleaser --rm-dist --release-notes=PATH/TO/NOTES $(VERSION)$(RESET)"
+	@goreleaser --rm-dist --release-notes=$(PREFIX)/$(RELEASE_NOTES)/$(VERSION).md
+	#@echo "$(YELLOW)==> Now run: goreleaser --rm-dist --release-notes=PATH/TO/NOTES $(VERSION)$(RESET)"
 
 .PHONY: release-snapshot
 release-snapshot: ## Build snapshot of release with GoReleaser
