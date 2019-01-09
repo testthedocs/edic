@@ -83,7 +83,7 @@ staticcheck: $(STATICCHECK) ## Runs staticcheck
 
 .PHONY: docs
 docs: ## Builds HTML for publishing
-	$(MAKE) -C docs html
+	$(MAKE) -C docs docs
 
 .PHONY: release
 release: ## Release go binary using GitReleaser
