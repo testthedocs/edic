@@ -1,7 +1,7 @@
 ---
 title: Configuration
 menu: true
-weight: 10
+weight: 5
 ---
 
 There is currently **no** way to use your own configuration settings for checks !

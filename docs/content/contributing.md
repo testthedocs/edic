@@ -1,7 +1,7 @@
 ---
 title: Contributing
 menu: true
-weight: 11
+weight: 6
 ---
 
 Reference points about contributing and developing.
