@@ -1,0 +1,12 @@
+Notes
+
+In a 'empty' dir:
+
+go get github.com/spf13/cobra/cobra
+
+## Init cobra with no license and with a name
+cobra init -l none -a svx
+
+## Adjust License in files
+
+
