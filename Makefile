@@ -33,3 +33,9 @@ test-build: ## Creating test builds (binaries) for local testing
 	 -osarch="linux/amd64 darwin/amd64" -output "$(TEST_BUILDS)/{{.Dir}}_{{.OS}}_{{.Arch}}"
 	@echo ""
 	@echo "$(YELLOW)==> Done ! Test binaries for $(VERSION) are created in $(TEST_BUILDS) $(RESET)"
+
+.PHONY: AUTHORS
+AUTHORS: ## Creates file with all individuals having contributed content to the repository
+	@$(file >$@,# This file lists all individuals having contributed content to the repository.)
+	@$(file >>$@,# For how it is generated, see `make AUTHORS`.)
+	@echo "$(shell git log --format='%aN <%aE>' | LC_ALL=C.UTF-8 sort -uf)" >> $@
