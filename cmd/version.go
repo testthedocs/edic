@@ -22,6 +22,7 @@ package cmd
 
 import (
 	"fmt"
+        "runtime"
 
 	"github.com/spf13/cobra"
 )
@@ -45,6 +46,8 @@ Version, Build Date and Git Commit.`,
                 fmt.Printf("Version: %s\n", Version)
 		fmt.Printf("Build Date: %s\n", BuildDate)
                 fmt.Printf("Git Commit: %s\n", GitCommit)
+                fmt.Printf("OS: %s\n", runtime.GOOS)
+                fmt.Printf("Arch: %s\n", runtime.GOARCH)
 	},
 }
 
