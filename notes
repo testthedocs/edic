@@ -11,4 +11,8 @@ cobra add -a TestTheDocs -l mit $FUNCTION
 
 Adjust License in files
 
+## Code
+
+//Var
+var containerName string = "testthedocs/mdlint"
 

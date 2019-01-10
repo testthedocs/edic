@@ -32,7 +32,9 @@ var linkcheckCmd = &cobra.Command{
 	Short: "Linkchecker for rst and md files",
 	Long: `A Linkchecker for rst and md source files.
 
-Links to "localhost" and "0.0.0.0" are ignored.`,
+Links to "localhost" and "0.0.0.0" are ignored.
+
+Based on ttd-linkcheck: https://rakpart.testthedocs.org/ttd-linkcheck.html `,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("linkcheck called")
 	},
