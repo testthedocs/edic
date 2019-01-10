@@ -26,28 +26,28 @@ import (
 	"github.com/spf13/cobra"
 )
 
-// Default build-time variable.
-// These values are overridden via ldflags
-var (
-    BuildDate string
-    GitCommit string
-    Version string
-)
+// linkcheckCmd represents the linkcheck command
+var linkcheckCmd = &cobra.Command{
+	Use:   "linkcheck",
+	Short: "Linkchecker for rst and md files",
+	Long: `A Linkchecker for rst and md source files.
 
-// versionCmd represents the version command
-var versionCmd = &cobra.Command{
-	Use:   "version",
-	Short: "Show the version information",
-        Long: `Show information about:
-
-Version, Build Date and Git Commit.`,
+Links to "localhost" and "0.0.0.0" are ignored.`,
 	Run: func(cmd *cobra.Command, args []string) {
-                fmt.Printf("Version: %s\n", Version)
-		fmt.Printf("Build Date: %s\n", BuildDate)
-                fmt.Printf("Git Commit: %s\n", GitCommit)
+		fmt.Println("linkcheck called")
 	},
 }
 
 func init() {
-	rootCmd.AddCommand(versionCmd)
+	rootCmd.AddCommand(linkcheckCmd)
+
+	// Here you will define your flags and configuration settings.
+
+	// Cobra supports Persistent Flags which will work for this command
+	// and all subcommands, e.g.:
+	// linkcheckCmd.PersistentFlags().String("foo", "", "A help for foo")
+
+	// Cobra supports local flags which will only run when this command
+	// is called directly, e.g.:
+	// linkcheckCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
