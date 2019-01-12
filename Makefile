@@ -10,7 +10,7 @@ YELLOW=`tput setaf 3`
 
 # Settings
 BIN_DIR := $(GOPATH)/bin
-TEST_BUILDS=test-pkgs
+PKG_DIR=dist
 
 # Build Settings
 VERSION := $(shell cat VERSION)
@@ -30,9 +30,9 @@ test-build: ## Creating test builds (binaries) for local testing
 	@gox -ldflags "$(LD_FLAGS) -X github.com/testthedocs/edic/cmd.Version=${VERSION} \
 	 -X github.com/testthedocs/edic/cmd.BuildDate=$(BUILD_DATE) \
 	 -X github.com/testthedocs/edic/cmd.GitCommit=$(GIT_COMMIT)" \
-	 -osarch="linux/amd64 darwin/amd64" -output "$(TEST_BUILDS)/{{.Dir}}_{{.OS}}_{{.Arch}}"
+	 -osarch="linux/amd64 darwin/amd64" -output "$(PKG_DIR)/{{.Dir}}_{{.OS}}_{{.Arch}}"
 	@echo ""
-	@echo "$(YELLOW)==> Done ! Test binaries for $(VERSION) are created in $(TEST_BUILDS) $(RESET)"
+	@echo "$(YELLOW)==> Done ! Test binaries for $(VERSION) are created in $(PKG_DIR) $(RESET)"
 
 .PHONY: AUTHORS
 AUTHORS: ## Creates file with all individuals having contributed content to the repository
