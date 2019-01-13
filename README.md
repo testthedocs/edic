@@ -50,18 +50,13 @@ GLOBAL OPTIONS:
 
 ## Install
 
+Browse o the [release page](https://github.com/testthedocs/edic/releases) and download the binary according to your OS.
+
+
 To install, use `go get`:
 
 ```shell
 go get -d github.com/testthedocs/edic
-```
-
-`curl`:
-
-> **Caution**: Do not blindly follow these instructions, review our [install script](https://github.com/testthedocs/ttd-cli/blob/master/install.sh) first.
-
-```sh
-curl https://raw.githubusercontent.com/testthedocs/redactor/master/install.sh | sh
 ```
 
 ## Versioning
