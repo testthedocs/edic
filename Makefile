@@ -17,6 +17,11 @@ VERSION := $(shell cat VERSION)
 GIT_COMMIT := $(shell git rev-parse --short HEAD)
 BUILD_DATE:= $(shell date -u +%F)
 
+# Check for required command tools to build or stop immediately
+EXECUTABLES = git go find pwd
+K := $(foreach exec,$(EXECUTABLES),\
+        $(if $(shell which $(exec)),some string,$(error "No $(exec) in PATH)))
+
 .PHONY: help
 help: ## This help message
 	@echo -e "$$(grep -hE '^\S+:.*##' $(MAKEFILE_LIST) | sed -e 's/:.*##\s*/:/' -e 's/^\(.\+\):\(.*\)/\\x1b[36m\1\\x1b[m:\2/' | column -c2 -t -s :)"
