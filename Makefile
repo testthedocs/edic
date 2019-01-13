@@ -34,6 +34,12 @@ test-build: ## Creating test builds (binaries) for local testing
 	@echo ""
 	@echo "$(YELLOW)==> Done ! Test binaries for $(VERSION) are created in $(PKG_DIR) $(RESET)"
 
+.PHONY: dep-update
+dep-update: ## Update go libs with dep
+	@echo ""
+	@echo "$(YELLOW)==> Creating test binaries for $(VERSION)$(RESET)"
+	@dep ensure -u
+
 .PHONY: AUTHORS
 AUTHORS: ## Creates file with all individuals having contributed content to the repository
 	@$(file >$@,# This file lists all individuals having contributed content to the repository.)
