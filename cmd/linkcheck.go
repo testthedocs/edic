@@ -21,7 +21,8 @@
 package cmd
 
 import (
-	"fmt"
+	"os"
+	"os/exec"
 
 	"github.com/spf13/cobra"
 )
@@ -36,8 +37,18 @@ Links to "localhost" and "0.0.0.0" are ignored.
 
 Based on ttd-linkcheck: https://rakpart.testthedocs.org/ttd-linkcheck.html `,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("linkcheck called")
+		linkCheck()
 	},
+}
+
+func linkCheck() {
+	// Runs ttd-linkcheck
+	cmdStr := "docker run --rm -i -v $PWD:/srv/test testthedocs/ttd-linkcheck"
+	cmd := exec.Command("bash", "-c", cmdStr)
+	cmd.Stdout = os.Stdout
+	cmd.Stdin = os.Stdin
+	cmd.Stderr = os.Stderr
+	cmd.Run()
 }
 
 func init() {
