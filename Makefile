@@ -45,6 +45,12 @@ dep-update: ## Update go libs with dep
 	@echo "$(YELLOW)==> Creating test binaries for $(VERSION)$(RESET)"
 	@dep ensure -u
 
+.PHONY: setup
+setup: ## Create initial setup locally
+	@echo ""
+	@echo "$(YELLOW)==> Initialize local setup$(RESET)"
+	@dep ensure -vendor-only
+
 .PHONY: AUTHORS
 AUTHORS: ## Creates file with all individuals having contributed content to the repository
 	@$(file >$@,# This file lists all individuals having contributed content to the repository.)
