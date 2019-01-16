@@ -16,28 +16,3 @@ Adjust License in files
 //Var
 var containerName string = "testthedocs/mdlint"
 
-## Check
-
-https://github.com/boz/kail/pull/26/files
-
-"I've met with some trouble when was adding kail to alpine or scratch based Docker images.
-
-I use these Docker images to contain useful DevOps tools (terraform, kubectl, helm, kail etc).
-
-warning The binaries built with goreleaser are not really static by default and they do depend on libc.
-
-If you download kail Linux tarball and then examine it with file kail_0.7.0_linux_amd64/kail:
-
-dist/linux_amd64/kail: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, stripped
-
-Then, if you disable CGO (done in this PR), you get really statically linked image:
-
-dist/linux_amd64/kail: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, stripped
-
-This way we will add approx 4Mb to both Linux and Darwin binary sizes, but will skip the libc linking.
-
-I've tested manually both Linux and Darwin binaries, looks like nothing really broke after this change.
-
-I find generation of "really static" binaries useful not only for me, but "Golangish" in general, so roll_eyes
-
-Thanks!"
