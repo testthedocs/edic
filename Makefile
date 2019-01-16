@@ -11,6 +11,7 @@ YELLOW=`tput setaf 3`
 # Settings
 BIN_DIR := $(GOPATH)/bin
 PKG_DIR=dist
+RELEASE_NOTES :=release-notes
 
 # Build Settings
 VERSION := $(shell cat VERSION)
@@ -20,11 +21,16 @@ BUILD_DATE:= $(shell date -u +%F)
 # Check for required command tools to build or stop immediately
 EXECUTABLES = git go find pwd
 K := $(foreach exec,$(EXECUTABLES),\
-        $(if $(shell which $(exec)),some string,$(error "No $(exec) in PATH)))
+        $(if $(shell which $(exec)),some string,$(error "No $(exec) in PATH")))
 
 .PHONY: help
 help: ## This help message
 	@echo -e "$$(grep -hE '^\S+:.*##' $(MAKEFILE_LIST) | sed -e 's/:.*##\s*/:/' -e 's/^\(.\+\):\(.*\)/\\x1b[36m\1\\x1b[m:\2/' | column -c2 -t -s :)"
+
+.PHONY: check
+check: ## Runs golangci
+	@GO111MODULE=off go get -u github.com/golangci/golangci-lint/cmd/golangci-lint
+	@golangci-lint run
 
 .PHONY: test-build
 test-build: ## Creating test builds (binaries) for local testing
@@ -44,6 +50,17 @@ dep-update: ## Update go libs with dep
 	@echo ""
 	@echo "$(YELLOW)==> Creating test binaries for $(VERSION)$(RESET)"
 	@dep ensure -u
+
+.PHONY: release
+release: ## Release go binary using GitReleaser
+	@echo ""
+	@echo "$(YELLOW)==> Creating release for $(VERSION)$(RESET)"
+	@git tag -a $(VERSION) -m "Release" || true
+	@git push origin $(VERSION)
+	@goreleaser --rm-dist --release-notes=$(PREFIX)/$(RELEASE_NOTES)/$(VERSION).md
+	@GO111MODULE=off go get github.com/goreleaser/godownloader
+	@godownloader -r testthedocs/edic -o install.sh
+
 
 .PHONY: AUTHORS
 AUTHORS: ## Creates file with all individuals having contributed content to the repository
