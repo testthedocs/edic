@@ -31,7 +31,7 @@ import (
 var rstCmd = &cobra.Command{
 	Use:   "rst",
 	Short: "Checks reStructuredText Syntax",
-	Long: `reStructuredText code style linter.
+	Long: `reStructuredText code style linter
 
 Default Settings:
 Invalid rst format - D000

@@ -31,7 +31,7 @@ import (
 var linkcheckCmd = &cobra.Command{
 	Use:   "linkcheck",
 	Short: "Linkchecker for rst and md files",
-	Long: `A Linkchecker for rst and md source files.
+	Long: `A Linkchecker for rst and md source files
 
 Links to "localhost" and "0.0.0.0" are ignored.
 

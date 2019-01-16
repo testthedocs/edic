@@ -31,7 +31,7 @@ import (
 var mdCmd = &cobra.Command{
 	Use:   "md",
 	Short: "Checks Markdown Syntax (CommonMark Style)",
-	Long: `Markdown Code Style Linter For CommonMark.
+	Long: `Markdown code style linter for CommonMark
 
 Based on https://rakpart.testthedocs.org/ttd-remark.html`,
 	Run: func(cmd *cobra.Command, args []string) {
