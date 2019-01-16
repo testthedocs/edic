@@ -53,7 +53,7 @@ Based on https://rakpart.testthedocs.org/ttd-doc8.html`,
 
 func rstCheck() {
 	// Runs ttd-linkcheck
-	cmdStr := "docker run -it -v `pwd`:/srv/data testthedocs/doc8"
+	cmdStr := "docker run -it -v `pwd`:/srv/data testthedocs/ttd-doc8"
 	cmd := exec.Command("bash", "-c", cmdStr)
 	cmd.Stdout = os.Stdout
 	cmd.Stdin = os.Stdin
