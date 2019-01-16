@@ -61,6 +61,9 @@ release: ## Release go binary using GitReleaser
 	@GO111MODULE=off go get github.com/goreleaser/godownloader
 	@godownloader -r testthedocs/edic -o install.sh
 
+.PHONY: release-snapshot
+release-snapshot: ## Build snapshot of release with GoReleaser
+	@goreleaser --snapshot --rm-dist
 
 .PHONY: AUTHORS
 AUTHORS: ## Creates file with all individuals having contributed content to the repository
