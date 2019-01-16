@@ -21,7 +21,8 @@
 package cmd
 
 import (
-	"fmt"
+	"os"
+	"os/exec"
 
 	"github.com/spf13/cobra"
 )
@@ -29,16 +30,35 @@ import (
 // rstCmd represents the rst command
 var rstCmd = &cobra.Command{
 	Use:   "rst",
-	Short: "A brief description of your command",
-	Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
+	Short: "Checks reStructuredText Syntax",
+	Long: `reStructuredText code style linter.
 
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+Default Settings:
+Invalid rst format - D000
+Lines should not be longer than 180 characters - D001
+RST exception: line with no whitespace except in the beginning
+RST exception: lines with http or https urls
+RST exception: literal blocks
+RST exception: rst target directives
+No trailing whitespace - D002
+No tabulation for indentation - D003
+No carriage returns (use unix newlines) - D004
+No newline at end of file - D005
+
+Based on https://rakpart.testthedocs.org/ttd-doc8.html`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("rst called")
+		rstCheck()
 	},
+}
+
+func rstCheck() {
+	// Runs ttd-linkcheck
+	cmdStr := "docker run -it -v `pwd`:/srv/data testthedocs/doc8"
+	cmd := exec.Command("bash", "-c", cmdStr)
+	cmd.Stdout = os.Stdout
+	cmd.Stdin = os.Stdin
+	cmd.Stderr = os.Stderr
+	cmd.Run()
 }
 
 func init() {
