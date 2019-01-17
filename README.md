@@ -1,5 +1,7 @@
 # Edic
 
+[![Build Status](https://travis-ci.org/testthedocs/edic.svg?branch=master)](https://travis-ci.org/testthedocs/edic)
+
 Editor In Chief
 
 ## Description
