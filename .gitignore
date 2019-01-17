@@ -3,3 +3,4 @@ edic
 docs/public
 docs/themes
 dist
+.env

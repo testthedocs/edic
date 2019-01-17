@@ -17,6 +17,7 @@ RELEASE_NOTES :=release-notes
 VERSION := $(shell cat VERSION)
 GIT_COMMIT := $(shell git rev-parse --short HEAD)
 BUILD_DATE:= $(shell date -u +%F)
+LD_FLAGS += -s -w
 
 # Check for required command tools to build or stop immediately
 EXECUTABLES = git go find pwd
@@ -32,8 +33,16 @@ check: ## Runs golangci
 	@GO111MODULE=off go get -u github.com/golangci/golangci-lint/cmd/golangci-lint
 	@golangci-lint run
 
-.PHONY: test-build
-test-build: ## Creating test builds (binaries) for local testing
+.PHONY: install
+install: ## Install binary locally
+	@echo ""
+	@echo "$(YELLOW)==> Installing binary for $(VERSION)$(RESET)"
+	go install -ldflags "$(LD_FLAGS) -X github.com/testthedocs/edic/cmd.Version=${VERSION} \
+	 -X github.com/testthedocs/edic/cmd.BuildDate=$(BUILD_DATE) \
+	 -X github.com/testthedocs/edic/cmd.GitCommit=$(GIT_COMMIT)"
+
+.PHONY: binary
+binary: ## Creating builds (binaries)
 	@echo ""
 	@echo "$(YELLOW)==> Creating test binaries for $(VERSION)$(RESET)"
 	@if [ -d $(TEST_BUILDS) ]; then rm -rf $(TEST_BUILDS); fi;
@@ -52,18 +61,13 @@ dep-update: ## Update go libs with dep
 	@dep ensure -u
 
 .PHONY: release
-release: ## Release go binary using GitReleaser
+release: binaries## Release go binary using GitReleaser
 	@echo ""
 	@echo "$(YELLOW)==> Creating release for $(VERSION)$(RESET)"
 	@git tag -a $(VERSION) -m "Release" || true
 	@git push origin $(VERSION)
-	@goreleaser --rm-dist --release-notes=$(PREFIX)/$(RELEASE_NOTES)/$(VERSION).md
-	@GO111MODULE=off go get github.com/goreleaser/godownloader
-	@godownloader -r testthedocs/edic -o install.sh
-
-.PHONY: release-snapshot
-release-snapshot: ## Build snapshot of release with GoReleaser
-	@goreleaser --snapshot --rm-dist
+	source .env
+	@ghr -t ${GITHUB_TOKEN} -body="$(cat $(PREFIX)/$(RELEASE_NOTES)/$(VERSION).md)" $(VERSION) dist
 
 .PHONY: AUTHORS
 AUTHORS: ## Creates file with all individuals having contributed content to the repository
