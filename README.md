@@ -1,3 +1,5 @@
+**This is the old master, 0.0.2 is changed to master, and thus the branches got renamed**
+
 # Edic
 
 Editor In Chief
