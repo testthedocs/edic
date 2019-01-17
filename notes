@@ -16,3 +16,8 @@ Adjust License in files
 //Var
 var containerName string = "testthedocs/mdlint"
 
+## Asccinemas
+
+md: https://asciinema.org/a/221968
+rst: https://asciinema.org/a/221969
+linkcheck: https://asciinema.org/a/221970
