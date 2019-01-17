@@ -1,0 +1,15 @@
+language: go
+sudo: true
+notifications:
+  email: true
+go:
+  - 1.11.x
+
+before_install:
+  - go get github.com/golangci/golangci-lint/cmd/golangci-lint
+
+script:
+  - golangci-lint run       # run a bunch of code checkers/linters in parallel
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
