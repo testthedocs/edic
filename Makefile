@@ -13,11 +13,17 @@ BIN_DIR := $(GOPATH)/bin
 PKG_DIR=dist
 RELEASE_NOTES :=release-notes
 
+# Set an output prefix, which is the local directory if not specified
+PREFIX?=$(shell pwd)
+
 # Build Settings
 VERSION := $(shell cat VERSION)
 GIT_COMMIT := $(shell git rev-parse --short HEAD)
 BUILD_DATE:= $(shell date -u +%F)
 LD_FLAGS += -s -w
+
+# Release settings
+GITHUB_TOKEN := $(shell cat .env)
 
 # Check for required command tools to build or stop immediately
 EXECUTABLES = git go find pwd
@@ -44,30 +50,33 @@ install: ## Install binary locally
 .PHONY: binary
 binary: ## Creating builds (binaries)
 	@echo ""
-	@echo "$(YELLOW)==> Creating test binaries for $(VERSION)$(RESET)"
-	@if [ -d $(TEST_BUILDS) ]; then rm -rf $(TEST_BUILDS); fi;
+	@echo "$(YELLOW)==> Creating binaries for $(VERSION)$(RESET)"
+	@if [ -d $(PKG_DIR) ]; then rm -rf $(PKG_DIR); fi;
 	@go fmt
 	@gox -ldflags "$(LD_FLAGS) -X github.com/testthedocs/edic/cmd.Version=${VERSION} \
 	 -X github.com/testthedocs/edic/cmd.BuildDate=$(BUILD_DATE) \
 	 -X github.com/testthedocs/edic/cmd.GitCommit=$(GIT_COMMIT)" \
 	 -osarch="linux/amd64 darwin/amd64" -output "$(PKG_DIR)/{{.Dir}}_{{.OS}}_{{.Arch}}"
 	@echo ""
-	@echo "$(YELLOW)==> Done ! Test binaries for $(VERSION) are created in $(PKG_DIR) $(RESET)"
+	@echo "$(YELLOW)==> Done ! binaries for $(VERSION) are created in $(PKG_DIR) $(RESET)"
 
 .PHONY: dep-update
 dep-update: ## Update go libs with dep
 	@echo ""
-	@echo "$(YELLOW)==> Creating test binaries for $(VERSION)$(RESET)"
+	@echo "$(YELLOW)==> Updating go libs $(VERSION)$(RESET)"
 	@dep ensure -u
 
 .PHONY: release
-release: binaries## Release go binary using GitReleaser
+release: binary ## Release go binary using GitReleaser
 	@echo ""
 	@echo "$(YELLOW)==> Creating release for $(VERSION)$(RESET)"
 	@git tag -a $(VERSION) -m "Release" || true
 	@git push origin $(VERSION)
-	source .env
-	@ghr -t ${GITHUB_TOKEN} -body="$(cat $(PREFIX)/$(RELEASE_NOTES)/$(VERSION).md)" $(VERSION) dist
+	@ghr -t $(GITHUB_TOKEN) -body="$(cat $(PREFIX)/$(RELEASE_NOTES)/$(VERSION).md)" $(VERSION) dist
+
+.PHONY: read-changelog
+read-changelog:
+	@cat $(PREFIX)/$(RELEASE_NOTES)/$(VERSION).md
 
 .PHONY: AUTHORS
 AUTHORS: ## Creates file with all individuals having contributed content to the repository
