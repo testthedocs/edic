@@ -19,7 +19,7 @@ All checks are based on [Rakpart](https://rakpart.testthedocs.org)
 
 ## Documentation
 
-Read the documentation on the [website](https://edic.testthhedocs.org).
+Read the documentation on the [website](https://edic.testthedocs.org).
 
 ## Usage
 
