@@ -4,7 +4,7 @@ menu: true
 weight: 4
 ---
 
-*Edic* uses [Rakpart](https://rakpart.testhedocs.org) checks.
+*Edic* uses [Rakpart](https://rakpart.testthedocs.org) checks.
 
 # Markdown
 
