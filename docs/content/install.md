@@ -6,7 +6,7 @@ weight: 3
 
 You do not need to install Go to enjoy Edic. Grab a precompiled binary!
 
-Edic is written in [Go](http://git-scm.com/) with support for multiple platforms.
+Edic is written in [Go](https://golang.org/) with support for multiple platforms.
 The latest release can be found at [Edic Releases](https://github.com/testthedocs/edic/releases).
 
 ## Binary (Cross-platform)
@@ -105,7 +105,7 @@ You’ve successfully installed Edic.
 
 ### Prerequisite Tools
 
-- [Go (at least Go 1.11)](https://golang.org/dl/)
+- [Go (at least Go 1.11)](https://golang.org/)
 
 ```sh
 go get github.com/testthedocs/edic
@@ -119,7 +119,7 @@ go get github.com/testthedocs/edic
 ### Prerequisite Tools
 
 - [Git](http://git-scm.com/)
-- [Go (at least Go 1.11)](https://golang.org/dl/)
+- [Go (at least Go 1.11)](https://golang.org/)
 - [dep](https://github.com/golang/dep/)
 
 ```sh
