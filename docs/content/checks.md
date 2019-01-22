@@ -18,6 +18,8 @@ edic md
 
 ![edic md](/edic-remark-lint.png "edic md")
 
+[![asciicast](https://asciinema.org/a/221968.svg)](https://asciinema.org/a/221968)
+
 - [remark-lint documentation](https://rakpart.testthedocs.org/ttd-remark.html) on Rakpart.
 
 # Linkcheck
@@ -34,6 +36,10 @@ edic linkcheck
 
 ![edic linkcheck](/edic-linkcheck.png "edic linkcheck")
 
+<script id="asciicast-221970" src="https://asciinema.org/a/221970.js" async></script>
+
+[![asciicast](https://asciinema.org/a/221970.svg)](https://asciinema.org/a/221970)
+
 - [Linkcheck docs](https://rakpart.testthedocs.org/ttd-linkcheck.html) on Rakpart.
 
 # reStructuredText
@@ -45,8 +51,6 @@ From in your docs directory:
 ```shell
 edic rst
 ```
-
-![edic rst](/edic-rst.png "edic rst")
 
 ## Default Settings
 
@@ -60,5 +64,9 @@ edic rst
 - No tabulation for indentation - ``D003``
 - No carriage returns (use unix newlines) - ``D004``
 - No newline at end of file - ``D005``
+
+![edic rst](/edic-rst.png "edic rst")
+
+[![asciicast](https://asciinema.org/a/221969.svg)](https://asciinema.org/a/221969)
 
 - [reST docs](https://rakpart.testthedocs.org/ttd-doc8.html) on Rakpart.
