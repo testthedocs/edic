@@ -4,7 +4,8 @@ menu: true
 weight: 3
 ---
 
-You do not need to install Go to enjoy Edic. Grab a precompiled binary!
+You do not need to install Go to enjoy Edic.
+Grab a precompiled binary!
 
 Edic is written in [Go](https://golang.org/) with support for multiple platforms.
 The latest release can be found at [Edic Releases](https://github.com/testthedocs/edic/releases).
@@ -42,22 +43,22 @@ The name will be something like edic_darwin_amd64 (macOS).
 For this example we will install the binary into `~/bin` so that only you can run it.
 
 ```shell
-# create the directory if needed
+# Create the directory if needed
 mkdir -p ~/bin
 
-# make it the working directory
+# Make it the working directory
 cd ~/bin
 
-# copy the binary into place
+# Copy the binary into place
 cp ~/Downloads/edic_darwin_amd64 .
 
-# rename the binary to edic
+# Rename the binary to edic
 mv edic_darwin_amd64 edic
 
-# make it 'runnable'
+# Make it 'runnable'
 chmod +x edic
 
-# verify that it runs
+# Verify that it runs
 ./edic version
 Version: v0.0.2
 Build Date: 2019-01-18
@@ -120,10 +121,10 @@ go get github.com/testthedocs/edic
 
 - [Git](http://git-scm.com/)
 - [Go (at least Go 1.11)](https://golang.org/)
-- [dep](https://github.com/golang/dep/)
+- [Dep](https://github.com/golang/dep/)
 
 ```sh
-git clone git@github.com:testthedocs/edic.git
+git clone https://github.com/testthedocs/edic.git
 cd edic
 dep ensure -u
 ```
