@@ -48,6 +48,7 @@ Version, Build Date and Git Commit.`,
                 fmt.Printf("Git Commit: %s\n", GitCommit)
                 fmt.Printf("OS: %s\n", runtime.GOOS)
                 fmt.Printf("Arch: %s\n", runtime.GOARCH)
+                fmt.Printf("Go Version: %s\n", runtime.Version())
 	},
 }
 
