@@ -1,0 +1,15 @@
+# Ignore Git related files
+.gitattributes export-ignore
+.gitignore export-ignore
+.gitmodules
+.github
+
+# Ignore CI releated files
+.travis.yml
+
+# Ignore others
+.goreleaser.yml
+netlify.toml
+notes
+
+
