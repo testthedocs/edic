@@ -60,11 +60,11 @@ binary: ## Creating builds (binaries)
 	@echo ""
 	@echo "$(YELLOW)==> Done ! binaries for $(VERSION) are created in $(PKG_DIR) $(RESET)"
 
-.PHONY: dep-update
+.PHONY: update
 dep-update: ## Update go libs with dep
 	@echo ""
 	@echo "$(YELLOW)==> Updating go libs $(VERSION)$(RESET)"
-	@dep ensure -u
+	@go mod tidy
 
 .PHONY: release
 release: binary ## Release go binary using GitReleaser

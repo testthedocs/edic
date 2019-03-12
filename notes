@@ -21,3 +21,11 @@ var containerName string = "testthedocs/mdlint"
 md: https://asciinema.org/a/221968
 rst: https://asciinema.org/a/221969
 linkcheck: https://asciinema.org/a/221970
+
+
+## Go
+export GO111MODULE=on (when you are in your old GOPATH)
+go mod init
+go: creating new go.mod: module github.com/testthedocs/edic
+go: copying requirements from Gopkg.lock
+
