@@ -21,7 +21,7 @@ Reference points about contributing and developing.
 
 We use [gox](https://github.com/mitchellh/gox)  in combination with [ghr](https://github.com/tcnksm/ghr/).
 
-Follow the steps below to make a new release !
+Follow the steps below to make a new release!
 
 ## Release Notes
 
@@ -32,13 +32,13 @@ We use as naming scheme the version number, that means the release notes for ver
 
 ### GitHub API Token
 
-To use ``ghr``, you need to get a GitHub token with an account which has enough permissions to to create releases.
+To use ``ghr``, you need to get a GitHub token with an account which has enough permissions to create releases.
 To get token, first, visit GitHub account settings page, then go to Applications for the user.
 
 Here you can create a token in the Personal access tokens section.
 For a private repository you need *repo* scope and for a public repository you need *public_repo* scope.
 
-When using ``ghr``, you can set it via GITHUB_TOKEN env var, -token command line option or github.token property in .gitconfig file.
+When using ``ghr``, you can set it via the "GITHUB_TOKEN" env var, -token command line option or github.token property in .gitconfig file.
 
 We use a ``.env`` file which is **ignored** by git, check the ``Makefile`` for more information.
 

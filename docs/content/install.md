@@ -58,12 +58,14 @@ mv edic_darwin_amd64 edic
 # Make it 'runnable'
 chmod +x edic
 
-# Verify that it runs
+# Verify that it runs, you should see something like below
+
 ./edic version
-Version: v0.0.2
-Build Date: 2019-01-18
-Git Commit: 1d81e6e
-OS: darwin
+
+Version: v0.0.3
+Build Date: 2019-03-11
+Git Commit: 8d3c8e3
+OS: linux
 Arch: amd64
 ```
 
@@ -106,7 +108,7 @@ You’ve successfully installed Edic.
 
 ### Prerequisite Tools
 
-- [Go (at least Go 1.11)](https://golang.org/)
+- [Go (at least Go 1.12)](https://golang.org/)
 
 ```sh
 go get github.com/testthedocs/edic
@@ -120,13 +122,12 @@ go get github.com/testthedocs/edic
 ### Prerequisite Tools
 
 - [Git](http://git-scm.com/)
-- [Go (at least Go 1.11)](https://golang.org/)
-- [Dep](https://github.com/golang/dep/)
+- [Go (at least Go 1.12)](https://golang.org/)
 
 ```sh
 git clone https://github.com/testthedocs/edic.git
 cd edic
-dep ensure -u
+make install
 ```
 
 After that, the `edic` binary will be in your `$GOBIN` folder.

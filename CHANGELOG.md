@@ -1,4 +1,24 @@
-## 0.0.2 (2019-00-00)
+## 0.0.3 (2019-00-00)
+
+### Added
+
+### Added
+
+- Go modules [svx]
+- Go build version ouput [svx]
+- `.gitattributes` [svx]
+
+### Removed
+
+- `dep` and its dependencies [svx]
+
+### Improved
+
+- Docs [svx]
+- Docs are build now with Hugo 0.54 [svx]
+- Update `go` to 1.12 [svx]
+
+## 0.0.2 (2019-01-22)
 
 ## Improved
 
