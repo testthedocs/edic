@@ -67,7 +67,7 @@ For the versions available, see the [tags on this repository](https://github.com
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://edic.testthedocs/contributing) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](https://edic.testthedocs.org/contributing) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## License
 
