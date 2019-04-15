@@ -51,7 +51,7 @@ Use "edic [command] --help" for more information about a command.
 
 ## Install
 
-Browse o the [release page](https://github.com/testthedocs/edic/releases) and download the binary according to your OS.
+Browse to the [release page](https://github.com/testthedocs/edic/releases) and download the binary according to your OS.
 
 
 To install, use `go get`:
